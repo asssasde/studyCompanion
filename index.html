@@ -6,8 +6,8 @@
 	<!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- jQuery 
+  <script src="https://code.jquery.com/jquery.js"></script>-->
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -15,8 +15,20 @@
   <!-- LINK TO CSS FILE -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+<!-- Require -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
+
   <!-- LINK TO JS FILE -->
   <script type="text/javascript" src="assets/js/script.js"></script>
+
+  <!-- FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700' rel='stylesheet' type='text/css'>
+		
+
+  <!-- Chart.js 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>-->
+
+
 </head>
 <body>
 
@@ -27,53 +39,53 @@
 		
 			<div class="container text-center">
 				
-				<h1>Study Buddy</h1>
+				<h1 id="headerText">Study Buddy</h1>
 				<br>
 				
-				<p>"Quote of the day goes here"</p>
+				<p id="quoteText">"Quote of the day goes here"</p>
 			
 			</div>
 			
 		</header><!--End header -->
 <!-- ==============================================
-		TIMER SECION
+		TIMER SECIION
 		=============================================== -->
-		<div id="timerSection" class="add-padding">
+		<div id="timerSection">
 		
 			<div class="container text-center">
 				
-				<h3>Let's get to work!</h3>
+				<h3 id="sectionHeaders">Let's get to work!</h3>
 
 				<h1 id="timer">00:00</h1>
 				
-				<div class="row">
+				<div class="row" id="buttonsContainer">
 				
 					<div class="col-sm-4">
 					
-						<div class="service-icon">
-							<button class="btn btn-default" id="start">Start</button>
+						<div class="playBtn">
+							<img id="play" src="assets/img/play.png">
 						</div>
-						<p>Press this button to start</p>
+						<p id="textBtn">Press this button when you are ready to start studiyng</p>
 						
 						
 					</div>
 				
 					<div class="col-sm-4">
 					
-						<div class="service-icon">
-							<button class="btn btn-default" id="pause">Pause</button>
+						<div class="pauseBtn">
+							<img id="pause" src="assets/img/pause.png">
 						</div>
-						<p>Press this button to go for a break</p>
+						<p id="textBtn">Press this button to take a break and resume when you are ready again</p>
 						
 						
 					</div>
 					
 					<div class="col-sm-4">
 					
-						<div class="service-icon">
-							<button class="btn btn-default" id="Stop">Stop</button>
+						<div class="stopBtn">
+							<img id="stop" src="assets/img/stop.png">
 						</div>
-						<p>Press this button when you're done for the day</p>
+						<p id="textBtn">Press this button when you're done for the day. The minimum recommended is 20 hours per week</p>
 						
 						
 					</div>
@@ -88,18 +100,32 @@
 <!-- ==============================================
 		CHART
 		=============================================== -->
-		<div id="weeklyChart">
+		<div id="chartSection">
 		
 			<div class="container text-center">
 				
-				<h1>Weekly Chart</h1>
+				<h1 id="sectionHeaders">Weekly Chart</h1>
 				<br>
-				
-				<p>The chart goes here</p>
+				<div class="container" id="chartContainer">
+				 	<canvas id="myChart"></canvas>
+				</div>
 			
 			</div>
 			
 		</div><!--End chart section -->
+
+<!-- ==============================================
+		TRAFFIC MAP
+		=============================================== -->
+		<div id="traficSection">
+		
+			<div class="container">
+				
+				<div id="traffic"></div>
+			
+			</div>
+			
+		</div><!--End traffic map section -->
 
 
 </body>
