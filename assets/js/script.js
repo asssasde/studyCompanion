@@ -34,7 +34,7 @@ require(['jquery', 'moment', 'chartjs'], function($ ,moment, Chart) {
     });
 
 
-// Google map api with traffic layer
+// Google map api init. Location default is UM Bootcamp location - Allen Hall 
 
 function initMap () {
     var umBootcamp = { lat: 25.7229869, lng: -80.278534 };
@@ -42,7 +42,7 @@ function initMap () {
         zoom: 4,
         center: umBootcamp,
       });
-     
+     //grabs user location via dialogue on browser.
       if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function (position) {
            const user_location = {
