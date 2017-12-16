@@ -1,0 +1,145 @@
+/*-----------------------
+----- Basic Styles -----
+-------------------------*/
+body{
+	font-family: Raleway, Arial, sans-serif;
+    font-size:16px;
+    font-weight:300;
+    color:#6d6d6d;
+	overflow-x:hidden;
+}
+
+#sectionHeaders{
+	margin-top: 80px;
+	font-size: 40px;
+	font-weight:500;
+}
+/*-----------------------
+---- Header Styles ----
+-------------------------*/
+#home{
+	width: 100%;
+	height: 650px;
+	background:url('../img/header-bg.jpg') no-repeat;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	color:white;
+	border-bottom: 8px solid #dbb98f;
+}
+#headerText{
+	margin-top: 20%;
+	font-size:70px;
+    font-weight:500;
+
+}
+#quoteText{
+	font-size:26px;
+    font-weight:300;
+}
+
+
+/*Quotes Style Starts here*/
+
+.quote {
+  padding: 1em 1.5em 0;
+  font-size: 2em;
+	font-weight: bold;
+	font-family: cursive;
+}
+
+.author {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+/*Quotes Styles Ends here*/
+
+/*-----------------------
+---- Timer Styles ----
+-------------------------*/
+#timerSection{
+	background-color: #fff;
+    /*box-shadow: 0 0 50px rgba(0,0,0,0.5);*/
+	width: 100%;
+	height: 800px;
+}
+
+#timer{
+	margin-top: 80px;
+	font-size: 80px;
+
+}
+
+#buttonsContainer{
+	margin: 100px 50px 0 50px;
+}
+#start{
+	height: 100px;
+	width: 100px;
+}
+#start:hover {
+	opacity: .5;
+}
+
+#pause{
+	height: 100px;
+	width: 100px;
+}
+#pause:hover {
+	opacity: .5;
+}
+	#stop{
+	height: 100px;
+	width: 100px;
+}
+#stop:hover {
+	opacity: .5;
+}
+
+#textBtn{
+	margin: 40px 80px;
+}
+
+/*-----------------------
+---- Chart Styles ----
+-------------------------*/
+#chartSection{
+	width: 100%;
+	height: 750px;
+	background-color:
+
+}
+#chartContainer{
+	padding:50px;
+	width: 800px;
+	height:500px;
+}
+
+/*-----------------------
+---- Traffic Styles ----
+-------------------------*/
+#trafficSection{
+	width: 100%;
+	height: 600px;
+
+	border-top: 8px solid #dbb98f;
+	border-bottom: 8px solid #dbb98f;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+/*-----------------------
+---- Footer Styles ----
+-------------------------*/
+
+.footer{
+	width: 100%;
+	height: 100px;
+	background-color: #334958;
+}
+
+#footer{
+	margin-top: 35px;
+}
