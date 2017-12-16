@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>Study Byddy</title>
+	<!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- LINK TO CSS FILE -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  
+</head>
+<body>
+
+<!-- ==============================================
+		HEADER and QUOTE
+		=============================================== -->
+		<header id="home">
+		
+			<div class="container text-center">
+				
+				<h1>Study Buddy</h1>
+				<br>
+				
+				<p>"Quote of the day goes here"</p>
+			
+			</div>
+			
+		</header><!--End header -->
+<!-- ==============================================
+		TIMER SECION
+		=============================================== -->
+		<div id="timerSection" class="add-padding">
+		
+			<div class="container text-center">
+				
+				<h3>Let's get to work!</h3>
+
+				<h1 id="timer"><time>00:00:00</time></h1>
+
+
+				<div class="row">
+				
+					<div class="col-sm-4">
+					
+						<div class="service-icon">
+							<button class="btn btn-default" id="start">Start</button>
+						</div>
+						<p>Press this button to start</p>
+						
+						
+					</div>
+				
+					<div class="col-sm-4">
+					
+						<div class="service-icon">
+							<button class="btn btn-default" id="pause">Pause</button>
+						</div>
+						<p>Press this button to go for a break</p>
+						
+						
+					</div>
+					
+					<div class="col-sm-4">
+					
+						<div class="service-icon">
+							<button class="btn btn-default" id="stop">Stop</button>
+						</div>
+						<p>Press this button when you're done for the day</p>
+						
+						
+					</div>
+						
+				</div>
+					
+			</div>
+				
+
+		</div><!--End timer section -->
+
+<!-- ==============================================
+		CHART
+		=============================================== -->
+		<div id="weeklyChart">
+		
+			<div class="container text-center">
+				
+				<h1>Weekly Chart</h1>
+				<br>
+				
+				<p>The chart goes here</p>
+			
+			</div>
+			
+		</div><!--End chart section -->
+
+<!-- LINK TO JS FILE -->
+  <script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>
