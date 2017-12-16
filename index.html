@@ -3,27 +3,28 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Study Byddy</title>
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery.js"></script>
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery.js"></script>
 
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-<!-- LINK TO CSS FILE -->
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- LINK TO CSS FILE -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 <!-- Require -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
 
-<!-- FONTS -->
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700' rel='stylesheet' type='text/css'>
+
+  <!-- FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700' rel='stylesheet' type='text/css'>
 
 
-<!-- Chart.js
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>-->
+  <!-- Chart.js
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>-->
 
 
 </head>
@@ -61,16 +62,16 @@
 
 				<h3 id="sectionHeaders">Let's get to work!</h3>
 
-				<h1 id="timer">00:00</h1>
+				<h1 id="timer"><time>00:00:00</time></h1>
 
 				<div class="row" id="buttonsContainer">
 
 					<div class="col-sm-4">
 
-						<div class="playBtn">
-							<img id="play" src="assets/img/play.png">
+						<div class="startBtn">
+							<img id="start" src="assets/img/play.png">
 						</div>
-						<p id="textBtn">Press this button when you are ready to start studiyng</p>
+						<p id="textBtn">Press this button when you are ready to start studiyng. Also after taking a break.</p>
 
 
 					</div>
@@ -80,7 +81,7 @@
 						<div class="pauseBtn">
 							<img id="pause" src="assets/img/pause.png">
 						</div>
-						<p id="textBtn">Press this button to take a break and resume when you are ready again</p>
+						<p id="textBtn">Press this button to take a break. You should do it at least every hour</p>
 
 
 					</div>
@@ -122,15 +123,32 @@
 <!-- ==============================================
 		TRAFFIC MAP
 		=============================================== -->
-		<div id="trafficSection" class="container"></div>
+		<div id="trafficSection" class="container">
 
-		<!--End traffic map section -->
 
-	<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2QXSXjGIAiHScc3leyshQJ_k25zu9ZYU">
+
+		</div><!--End traffic map section -->
+
+<!-- ==============================================
+		FOOTER
+		=============================================== -->
+<footer class="footer">
+
+	<div class="container text-center">
+
+		<p id="footer">© Asley Calixte, Calvin Mendoza, Ejike Onwe, Mariela Pascual   2017</p>
+
+	</div>
+
+ </footer><!--End of footer section -->
+
+
+  <!-- API GOOGLE MAPS-->
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2QXSXjGIAiHScc3leyshQJ_k25zu9ZYU">
 	</script>
-	<script src="assets/js/script.js"></script>
-	<!--- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize"></script> -->
+
+ <!-- LINK TO JS FILE -->
+ <script type="text/javascript" src="assets/js/script.js"></script>
 
 
 </body>
