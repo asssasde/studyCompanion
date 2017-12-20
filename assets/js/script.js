@@ -90,11 +90,12 @@ $("#stop").on("click", function() {
 //END OF TIMER
 
 function saveToDb(hours, minutes, seconds) {
-    database.ref().set({
+  var saveTime = {
       hour: hours,
       minute: minutes,
       seconds: seconds
-    });
+  }
+    database.ref("/time").push(saveTime);
 }
 var weeks = [];
 //
