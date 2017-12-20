@@ -34,19 +34,19 @@ require(['jquery', 'moment', 'chartjs'], function($ ,moment, Chart) {
     });
 
 
-// Google map api init. Location default is UM Bootcamp location - Allen Hall 
+// Google map api init. Location B default is UM Bootcamp location - Allen Hall 
 
 function initMap () {
     var umBootcamp = { lat: 25.7230, lng: -80.2763 };
     var map = new google.maps.Map(document.getElementById('trafficSection'), {
-        zoom: 14,
+        zoom: 15,
         center: umBootcamp,
       });
 
       //traffic layer functionality.
       var trafficLayer = new google.maps.TrafficLayer();
       trafficLayer.setMap(map);
-
+      // user location via dialogue (accept / block) 
       if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function (position) {
            const user_location = {
@@ -66,14 +66,15 @@ function initMap () {
              map: map,
              title: "You are here"
            });
-     
+     //direction services for routes from user_location
      var directionsService = new google.maps.DirectionsService();
      var directionsDisplay = new google.maps.DirectionsRenderer();
-     
+    
      var directionRequest = {
        origin: user_location,
        destination: umBootcamp,
        travelMode: 'DRIVING'
+
      };
      
      directionsService.route(
@@ -92,7 +93,8 @@ function initMap () {
      
      
      directionsDisplay.setMap(map);
-
+    
+     //errors if user or browsers blocks location
     console.log(directionsDisplay);
      
      }, function () {
