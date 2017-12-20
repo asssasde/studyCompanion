@@ -1,6 +1,5 @@
 # Project #1 – Group 2
 ----
-----
 
 Trilogy – Full Stack Development Program
 
@@ -43,9 +42,9 @@ Study Buddy is an interactive tool that allows the user to actively track study 
 How to effectively track study time on a weekly bases, and increase student productively and focus.  Inspired by weekly cohort survey (time spent on studying).
 
 ## Tech/framework used
------
+----
 
-HTML, CSS, JavaScript, JQuery, AJAX?
+HTML, CSS, JavaScript, JQuery
 
 
 ### New Technology used
@@ -57,13 +56,9 @@ Chart.js
 
 Google Maps (Current traffic updates, and direction)
 
-Motivational Quotes (Generate quotes every 24 Hrs)
+Motivational Quotes (Generates quotes randomly)
 
-### ScreenShots
-----
-[image]
-[image]
-[image]
+
 
 ### Copyright
 ----
