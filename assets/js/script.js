@@ -37,7 +37,7 @@ require(['jquery', 'moment', 'chartjs'], function($ ,moment, Chart) {
 // Google map api init. Location default is UM Bootcamp location - Allen Hall 
 
 function initMap () {
-    var umBootcamp = { lat: 25.723694, lng: -80.276365 };
+    var umBootcamp = { lat: 25.7230, lng: -80.2763 };
     var map = new google.maps.Map(document.getElementById('trafficSection'), {
         zoom: 14,
         center: umBootcamp,
@@ -85,7 +85,7 @@ function initMap () {
      
          } else {
            // something went wrong
-          // window.alert('Directions request failed due to ' + status);
+          window.alert('Directions request failed due to ' + status);
          }
        }
      );
@@ -93,13 +93,13 @@ function initMap () {
      
      directionsDisplay.setMap(map);
 
-    // console.log(directionsDisplay);
+    console.log(directionsDisplay);
      
      }, function () {
-       //console.log('Error in the geolocation service.');
+       console.log('Error in the geolocation service.');
      });
      } else {
-     //console.log('Browser does not support geolocation.');
+      console.log('Browser does not support geolocation.');
      }
      
      }
