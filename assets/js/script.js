@@ -36,6 +36,8 @@ var seconds = 0;
 var minutes = 0;
 var hours = 0;
 var t;
+var addedSeconds = 0, addedMinutes = 0, addedHours = 0, addedTime = 10.1;
+
 
 function add()
 {
@@ -80,7 +82,7 @@ $("#stop").on("click", function() {
 
     console.log("seconds: " + seconds + "minutes:" + minutes + "hours:" + hours);
     saveToDb(hours, minutes, seconds);
-    $("#start").empty().append("start");
+    
 
 
     //console.log("stop");
@@ -105,13 +107,27 @@ function saveToDb(hours, minutes, seconds) {
     database.ref("/time").push(saveTime);
 }
 var weeks = [];
-//
+
+function sum(hrs, mins, secs){
+addedTime = hrs + (mins / 60) + (secs);
+//console.log(addedTime);
+return addedTime;
+}
+database.ref("/time").on("child_added", function(snapshot){
+  //console.log(snapshot.val());
+  addedHours += parseInt(snapshot.val().hour);
+  addedSeconds += parseInt(snapshot.val().seconds);
+  addedMinutes += parseInt(snapshot.val().minute);
+  //console.log(addedSeconds);
+  console.log(sum(addedHours,addedMinutes, addedSeconds));
+  
+})
 
 
 //END OF TIMER
 
-
 // CHART
+//addedTime = parseInt(addedHours) + parseInt(addedMinutes / 60) + parseInt(addedSeconds / 3600);
 require(['moment', 'chartjs'], function(moment, Chart) {
 
     const CHART = document.getElementById("myChart");
@@ -126,11 +142,16 @@ require(['moment', 'chartjs'], function(moment, Chart) {
             datasets: [{
                 label: 'Hours Per Week',
                 backgroundColor: '#b2c7c8',
-                data: [10, 15, 23, 30, 21, 33, 12, 28, 11]
+                data: [10, 15, 23, 30, 21, 33, 12, 28, 11, sum(addedHours,addedMinutes,addedSeconds)]
+
             }]
         }
-
+  
     });
+    //console.log(barChart.data.datasets[0].data[9]);
+    //var weekTen = barChart.data.datasets[0].data;
+    console.log(addedTime);
+
 //END OF CHART
 
 
