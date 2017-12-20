@@ -28,14 +28,31 @@ body{
 	border-bottom: 8px solid #dbb98f;
 }
 #headerText{
-	margin-top: 20%;
+	margin-top: 15%;
 	font-size:70px;
     font-weight:500;
+}
+#quoteText{
+	margin-top: 5%;
+}
+#quote-div{
+	margin-top: 20%;
+	}
 
+#quote{
+	font-size: 30px;
+	font-style: oblique;
+}
+#quoteButton{
+	margin-top: 3%;
+	background-color: #334959;
+	padding: 10px;
+	border: none;
 }
 #quoteText{
 	font-size:26px;
     font-weight:300;
+
 }
 
 /*-----------------------
