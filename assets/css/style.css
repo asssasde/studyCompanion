@@ -24,33 +24,48 @@ body{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	color:white;
+	color:White;
 	border-bottom: 8px solid #dbb98f;
+	/*text-shadow: 0 2px 0 black;*/
+	text-shadow:  -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+	z-index: 1;
 }
+
+
+
 #headerText{
-	margin-top: 20%;
+	margin-top: 15%;
 	font-size:70px;
-    font-weight:500;
+  font-weight:600;
+  text-shadow: 0 0 18px #dbb98f;
 
 }
 #quoteText{
 	font-size:26px;
-    font-weight:500;
+    font-weight:400;
 }
 
 
 /*Quotes Style Starts here*/
 
 .quote {
-  padding: 1em 1.5em 0;
+  padding: 1em 1.3em 0;
   font-size: 2em;
 	font-weight: bold;
 	font-family: cursive;
+
 }
 
 .author {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-style: italic;
+}
+.btn {
+	background-color: #dbb98f;
 }
 
 /*Quotes Styles Ends here*/

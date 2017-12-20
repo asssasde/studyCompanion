@@ -23,6 +23,9 @@
 	<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700' rel='stylesheet' type='text/css'>
 
 
+
+
+
   <!-- Chart.js
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>-->
 
@@ -37,17 +40,20 @@
 
 			<div class="container text-center">
 
+
 				<h1 id="headerText">Study Buddy</h1>
-	      <p id="quoteText">"Quotes to Fuel Your Mind"</p>
+	      <p id="quoteText"><span>"Quotes to Fuel Your Mind"</span></p>
 
 				<!-- Random Quotes starts here -->
 				<div class="quote-div">
 					  <p class="quote" id="quote" </p>
 						<p class="author" id="author"></p>
 				</div>
-				<div class="btn-container">
-					<button class="btn btn-success" id="quoteButton">Random Quote</button>
-				</div>
+					<div class="btn-container">
+						<button class="btn btn-default btn-md" id="quoteButton">
+	          <span class="glyphicon glyphicon-refresh"></span> New Quote
+	        	</button>
+				 </div>
 				<!-- Random Quotes Ends Here -->
 
 			</div>
@@ -57,6 +63,7 @@
 		TIMER SECIION
 		=============================================== -->
 		<div id="timerSection">
+			<div class="g-signin2" data-onsuccess="onSignIn"></div>
 
 			<div class="container text-center">
 
@@ -110,7 +117,7 @@
 
 			<div class="container text-center">
 
-				<h1 id="sectionHeaders">Weekly Chart</h1>
+				<h1 id="sectionHeaders">Progress Chart</h1>
 				<br>
 				<div class="container" id="chartContainer">
 				 	<canvas id="myChart"></canvas>
@@ -146,6 +153,8 @@
   <!-- API GOOGLE MAPS-->
  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2QXSXjGIAiHScc3leyshQJ_k25zu9ZYU">
 	</script>
+
+
 
  <!-- LINK TO JS FILE -->
  <script type="text/javascript" src="assets/js/script.js"></script>

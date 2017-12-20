@@ -7,9 +7,7 @@ require.config({
     "chartjs": "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle"
   },
   shim: {
-    //     jquery: {
-    //         exports: "$"
-    // }
+
   }
 });
 
@@ -85,11 +83,11 @@ require(['moment', 'chartjs'], function(moment, Chart) {
 
         type: 'bar',
         data: {
-            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
             datasets: [{
-                label: 'Hours Per Week',
+                label: 'Hours Per Day',
                 backgroundColor: '#b2c7c8',
-                data: [10, 15, 23, 30, 21, 33, 12, 28, 11]
+                data: [2, 34, 4, 2, 1, 4, 0.5,]
             }]
         }
 
@@ -98,8 +96,6 @@ require(['moment', 'chartjs'], function(moment, Chart) {
 
 
 // Random Quotes Starts Here
-
-quote();
 
 function quote() {
   $.ajax({
@@ -113,12 +109,14 @@ function quote() {
     },
     success: function(response) {
       $('#quote').html(response.quoteText)
-      $('#author').html(response.quoteAuthor)
+      $('#author').html("<br/>&dash; " + response.quoteAuthor)
+
     }
   });
 }
 
 $("#quoteButton").on("click", function() {
+
   quote();
 });
 
@@ -126,14 +124,17 @@ $("#quoteButton").on("click", function() {
 
 
 // Google map api init. Location default is UM Bootcamp location - Allen Hall
-
 function initMap () {
-    var umBootcamp = { lat: 25.7229869, lng: -80.278534 };
+    var umBootcamp = { lat: 25.7230, lng: -80.2763 };
     var map = new google.maps.Map(document.getElementById('trafficSection'), {
-        zoom: 4,
+        zoom: 14,
         center: umBootcamp,
       });
-     //grabs user location via dialogue on browser.
+
+      //traffic layer functionality.
+      var trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map);
+
       if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function (position) {
            const user_location = {
@@ -172,7 +173,7 @@ function initMap () {
 
          } else {
            // something went wrong
-           window.alert('Directions request failed due to ' + status);
+          window.alert('Directions request failed due to ' + status);
          }
        }
      );
@@ -180,19 +181,18 @@ function initMap () {
 
      directionsDisplay.setMap(map);
 
-     console.log(directionsDisplay);
+    console.log(directionsDisplay);
 
      }, function () {
        console.log('Error in the geolocation service.');
      });
      } else {
-     console.log('Browser does not support geolocation.');
+      console.log('Browser does not support geolocation.');
      }
 
      }
 
      initMap();
-
 
 
 
