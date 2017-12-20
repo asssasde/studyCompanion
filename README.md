@@ -1,17 +1,15 @@
 # studyCompanion
-An app to help you track your study time#Project #1 – Group 2 Alt-H1
+#Project #1 – Group 2
 
 Trilogy – Full Stack Development Program
-
 University of Miami Cohort 2017
-
 ##Team Members Alt-H2 Ashley Calixte (@Ashleycalx)
 
-Calvin Mendoza (@calvinmen1988)
+ Calvin Mendoza (@calvinmen1988)
 
-Ejike Onwe (@reyhenry38)
+ Ejike Onwe (@reyhenry38)
 
-Mariela Pascual (@mariela)
+ Mariela Pascual (@mariela)
 
 ##Study Buddy Alt-H2
 
