@@ -1,4 +1,3 @@
-
 var time = document.getElementById('timer');
 var start = document.getElementById('start');
 var pause = document.getElementById('pause');
@@ -56,3 +55,7 @@ $("#stop").on("click", function() {
     minutes = 0;
     hours = 0;
  });
+
+
+
+
