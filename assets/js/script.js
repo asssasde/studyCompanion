@@ -10,7 +10,7 @@
   };
   firebase.initializeApp(config);
 
- var database = firebase.database()
+ var database = firebase.database();
 
 //Require
 require.config({
@@ -36,6 +36,9 @@ var seconds = 0;
 var minutes = 0;
 var hours = 0;
 var t;
+// addedTime is a decimal / float so that we could see the fractional changes
+var addedSeconds = 0, addedMinutes = 0, addedHours = 0, addedTime = 0.01, newTime = 0;
+
 
 function add()
 {
@@ -63,29 +66,26 @@ function timer()
 }
 
 
-$("#start").on("click", function() {
+$("#start").on("click", function(event) {
         event.preventDefault();
-        $("#start").empty().append("start");
+        $("#start").empty().append("Start");
         clearTimeout(t);
         timer();
-        console.log("start");
+        console.log("Start");
     });
 
 $("#pause").on("click", function(){
     clearTimeout(t);
-    $("#start").empty().append("start");
+    $("#start").empty().append("Start");
 });
 
 $("#stop").on("click", function() {
 
-    console.log("seconds: " + seconds + "minutes:" + minutes + "hours:" + hours);
-    saveToDb(hours, minutes, seconds);
-    $("#start").empty().append("start");
-
-
+    console.log("seconds: " + seconds + " minutes: " + minutes + " hours: " + hours);
+    //send the values to go get added
+    sum(hours, minutes, seconds);
     //console.log("stop");
-    $("#start").empty().append("start");
-
+    $("#start").empty().append("Start");
     clearInterval(t);
     time.textContent = "00:00:00";
     seconds = 0;
@@ -96,22 +96,34 @@ $("#stop").on("click", function() {
  });
 //END OF TIMER
 
-function saveToDb(hours, minutes, seconds) {
-  var saveTime = {
-      hour: hours,
-      minute: minutes,
-      seconds: seconds
-  }
-    database.ref("/time").push(saveTime);
+// this function gets called everytime we stop the timerSection
+// basically, take the time we had when we stopped the timer
+// then add them all up... we want the answer to be in mins so hrs/secs get converted into minutes
+function sum(hrs, mins, secs){
+  newTime = (hrs * 60) + mins + (secs / 60);
+  console.log("This is the amount of time studied this session in mins: " + newTime);
+  //send the sum to the db
+  saveToDb(newTime);
 }
+
+//changed it so that we only save one value in the database, the sum
+function saveToDb(time) {
+  var saveTime = {
+    time: time
+  };
+//everytime you stop the timer send the value of added time to the database so that we could retrieve it later
+  database.ref("/allTime").push(saveTime);
+}
+
 var weeks = [];
-//
+
 
 
 //END OF TIMER
 
-
 // CHART
+
+//changed the chart to be minutes so that we could see the changes during the demo
 require(['moment', 'chartjs'], function(moment, Chart) {
 
     const CHART = document.getElementById("myChart");
@@ -124,13 +136,37 @@ require(['moment', 'chartjs'], function(moment, Chart) {
         data: {
             labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
             datasets: [{
-                label: 'Hours Per Week',
+                label: 'Minutes Per Week',
                 backgroundColor: '#b2c7c8',
-                data: [10, 15, 23, 30, 21, 33, 12, 28, 11]
+                data: [60, 75, 43, 120, 91, 33, 55, 180, 100, 0]
+
             }]
         }
 
     });
+
+
+//retrieve the saved times from the database
+    database.ref("/allTime").on("child_added", function(snapshot){
+//add every saved value you find in the database and add them to the addedtime variable
+      addedTime += snapshot.val().time;
+//send the sum, to the chart
+      addData(barChart, 10, addedTime);
+      console.log("This is the value of addedTime when we send it to chart: " + addedTime);
+
+    });
+
+// this takes whatever you want to send to the chart and then updates the chart
+// in this case we want the sum of all the time in the database "addedTime"
+// got this idea from http://www.chartjs.org/docs/latest/developers/updates.html
+// got the splice syntax from https://devdocs.io/javascript/global_objects/array/splice
+
+    function addData(chart, week, newData) {
+//we are picking one specific week in the chart, and replacing it with newData
+    chart.data.datasets[0].data.splice(9, 1, newData);
+    chart.update();
+}
+
 //END OF CHART
 
 
@@ -236,5 +272,3 @@ function initMap () {
 
 });
 // END OF MAP
-
-
