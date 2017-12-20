@@ -1,8 +1,22 @@
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDAQEQ-Kv0IOWzZRPFOdp2tuG14h6rEirE",
+    authDomain: "studybuddy-dfa34.firebaseapp.com",
+    databaseURL: "https://studybuddy-dfa34.firebaseio.com",
+    projectId: "studybuddy-dfa34",
+    storageBucket: "",
+    messagingSenderId: "585854569143"
+  };
+  firebase.initializeApp(config);
+
+ var database = firebase.database()
+
 //Require
 require.config({
 
   paths: {
-    //"jquery": "https://code.jquery.com/jquery-2.2.4.min", 
+    //"jquery": "https://code.jquery.com/jquery-2.2.4.min",
     "moment": "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment",
     "chartjs": "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle"
   },
@@ -30,7 +44,7 @@ function add()
     {
         seconds = 0;
         minutes++;
-        if (minutes >= 60) 
+        if (minutes >= 60)
         {
             minutes = 0;
             hours++;
@@ -63,26 +77,49 @@ $("#pause").on("click", function(){
 });
 
 $("#stop").on("click", function() {
+
+    console.log("seconds: " + seconds + "minutes:" + minutes + "hours:" + hours);
+    saveToDb(hours, minutes, seconds);
+    $("#start").empty().append("start");
+
+
     //console.log("stop");
     $("#start").empty().append("start");
+
     clearInterval(t);
     time.textContent = "00:00:00";
     seconds = 0;
     minutes = 0;
     hours = 0;
+
+
  });
 //END OF TIMER
 
+function saveToDb(hours, minutes, seconds) {
+  var saveTime = {
+      hour: hours,
+      minute: minutes,
+      seconds: seconds
+  }
+    database.ref("/time").push(saveTime);
+}
+var weeks = [];
+//
 
-// CHART 
+
+//END OF TIMER
+
+
+// CHART
 require(['moment', 'chartjs'], function(moment, Chart) {
-  
+
     const CHART = document.getElementById("myChart");
 
     Chart.defaults.scale.ticks.beginAtZero = true;
 
     let barChart = new Chart(CHART,{
-    
+
         type: 'bar',
         data: {
             labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
@@ -94,11 +131,39 @@ require(['moment', 'chartjs'], function(moment, Chart) {
         }
 
     });
-});
 //END OF CHART
 
 
-// MAP
+// Random Quotes Starts Here
+
+quote();
+
+function quote() {
+  $.ajax({
+    url: "https://api.forismatic.com/api/1.0/",
+    jsonp: "jsonp",
+    dataType: "jsonp",
+    data: {
+      method: "getQuote",
+      lang: "en",
+      format: "jsonp"
+    },
+    success: function(response) {
+      $('#quote').html(response.quoteText)
+      $('#author').html(response.quoteAuthor)
+    }
+  });
+}
+
+$("#quoteButton").on("click", function() {
+  quote();
+});
+
+// Random quotes Ends Here
+
+
+// Google map api init. Location default is UM Bootcamp location - Allen Hall
+
 function initMap () {
     var umBootcamp = { lat: 25.7229869, lng: -80.278534 };
     var map = new google.maps.Map(document.getElementById('trafficSection'), {
@@ -112,10 +177,10 @@ function initMap () {
              lat: position.coords.latitude,
              lng: position.coords.longitude
            };
-     
+
            // Center map with user location
            map.setCenter(user_location);
-     
+
            // Add a marker for your user location
            var userLocation = new google.maps.Marker({
              position: {
@@ -125,48 +190,46 @@ function initMap () {
              map: map,
              title: "You are here"
            });
-     
+
      var directionsService = new google.maps.DirectionsService();
      var directionsDisplay = new google.maps.DirectionsRenderer();
-     
+
      var directionRequest = {
        origin: user_location,
        destination: umBootcamp,
        travelMode: 'DRIVING'
      };
-     
+
      directionsService.route(
        directionRequest,
        function(response, status) {
          if (status === 'OK') {
            // everything is ok
            directionsDisplay.setDirections(response);
-     
+
          } else {
            // something went wrong
            window.alert('Directions request failed due to ' + status);
          }
        }
      );
-     
-     
+
+
      directionsDisplay.setMap(map);
 
      console.log(directionsDisplay);
-     
+
      }, function () {
        console.log('Error in the geolocation service.');
      });
      } else {
      console.log('Browser does not support geolocation.');
      }
-     
-}
-     
-initMap();
 
+     }
+
+     initMap();
+
+});
 // END OF MAP
-  
-
-
 
