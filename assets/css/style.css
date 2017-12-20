@@ -28,6 +28,7 @@ body{
 	border-bottom: 8px solid #dbb98f;
 }
 #headerText{
+
 	margin-top: 15%;
 	font-size:70px;
     font-weight:500;
@@ -54,6 +55,23 @@ body{
     font-weight:300;
 
 }
+
+/*Quotes Style Starts here*/
+
+.quote {
+  padding: 1em 1.5em 0;
+  font-size: 2em;
+	font-weight: bold;
+	font-family: cursive;
+}
+
+.author {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+/*Quotes Styles Ends here*/
+
 
 /*-----------------------
 ---- Timer Styles ----
@@ -89,7 +107,8 @@ body{
 #pause:hover {
 	opacity: .5;
 }	
-	#stop{
+
+#stop{
 	height: 100px;
 	width: 100px;
 }
@@ -107,7 +126,7 @@ body{
 #chartSection{
 	width: 100%;
 	height: 750px;
-	background-color: 
+	background-color: #fff;
 	
 }
 #chartContainer{
@@ -122,7 +141,6 @@ body{
 #trafficSection{
 	width: 100%;
 	height: 600px;
-	
 	border-top: 8px solid #dbb98f;
 	border-bottom: 8px solid #dbb98f;
 	background-repeat: no-repeat;

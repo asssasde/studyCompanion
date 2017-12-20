@@ -1,3 +1,4 @@
+
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDAQEQ-Kv0IOWzZRPFOdp2tuG14h6rEirE",
@@ -10,6 +11,7 @@
   firebase.initializeApp(config);
 
  var database = firebase.database()
+
 //Require
 require.config({
 
@@ -75,16 +77,21 @@ $("#pause").on("click", function(){
 });
 
 $("#stop").on("click", function() {
+
     console.log("seconds: " + seconds + "minutes:" + minutes + "hours:" + hours);
     saveToDb(hours, minutes, seconds);
     $("#start").empty().append("start");
 
-    
+
+    //console.log("stop");
+    $("#start").empty().append("start");
+
     clearInterval(t);
     time.textContent = "00:00:00";
     seconds = 0;
     minutes = 0;
     hours = 0;
+
 
  });
 //END OF TIMER
@@ -99,6 +106,11 @@ function saveToDb(hours, minutes, seconds) {
 }
 var weeks = [];
 //
+
+
+//END OF TIMER
+
+
 // CHART
 require(['moment', 'chartjs'], function(moment, Chart) {
 
@@ -217,9 +229,8 @@ function initMap () {
      }
 
      initMap();
+
 });
 // END OF MAP
-
-
 
 
