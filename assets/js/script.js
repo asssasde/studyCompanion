@@ -1,3 +1,17 @@
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDAQEQ-Kv0IOWzZRPFOdp2tuG14h6rEirE",
+    authDomain: "studybuddy-dfa34.firebaseapp.com",
+    databaseURL: "https://studybuddy-dfa34.firebaseio.com",
+    projectId: "studybuddy-dfa34",
+    storageBucket: "",
+    messagingSenderId: "585854569143"
+  };
+  firebase.initializeApp(config);
+
+ var database = firebase.database()
+
 //Require
 require.config({
 
@@ -7,7 +21,9 @@ require.config({
     "chartjs": "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle"
   },
   shim: {
-
+    //     jquery: {
+    //         exports: "$"
+    // }
   }
 });
 
@@ -61,14 +77,37 @@ $("#pause").on("click", function(){
 });
 
 $("#stop").on("click", function() {
+
+    console.log("seconds: " + seconds + "minutes:" + minutes + "hours:" + hours);
+    saveToDb(hours, minutes, seconds);
+    $("#start").empty().append("start");
+
+
     //console.log("stop");
     $("#start").empty().append("start");
+
     clearInterval(t);
     time.textContent = "00:00:00";
     seconds = 0;
     minutes = 0;
     hours = 0;
+
+
  });
+//END OF TIMER
+
+function saveToDb(hours, minutes, seconds) {
+  var saveTime = {
+      hour: hours,
+      minute: minutes,
+      seconds: seconds
+  }
+    database.ref("/time").push(saveTime);
+}
+var weeks = [];
+//
+
+
 //END OF TIMER
 
 
@@ -83,11 +122,11 @@ require(['moment', 'chartjs'], function(moment, Chart) {
 
         type: 'bar',
         data: {
-            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
             datasets: [{
-                label: 'Hours Per Day',
+                label: 'Hours Per Week',
                 backgroundColor: '#b2c7c8',
-                data: [2, 34, 4, 2, 1, 4, 0.5,]
+                data: [10, 15, 23, 30, 21, 33, 12, 28, 11]
             }]
         }
 
@@ -195,8 +234,7 @@ function initMap () {
      initMap();
 
 
-
 });
-
-
 // END OF MAP
+
+
