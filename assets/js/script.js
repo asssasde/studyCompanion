@@ -100,7 +100,7 @@ $("#stop").on("click", function() {
 // basically, take the time we had when we stopped the timer
 // then add them all up... we want the answer to be in mins so hrs/secs get converted into minutes
 function sum(hrs, mins, secs){
-  newTime = (hrs * 60) + mins + (secs / 60);
+  newTime = (hrs * 60) + (mins) + (secs / 60); //The time displays in munite to show changes during presentation.
   console.log("This is the amount of time studied this session in mins: " + newTime);
   //send the sum to the db
   saveToDb(newTime);
@@ -134,11 +134,11 @@ require(['moment', 'chartjs'], function(moment, Chart) {
 
         type: 'bar',
         data: {
-            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
+            labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9", "Week 10", "Week 11", "Week 12", "Week 13", "Week 14", "Week 15", "Week 16", "Week 17", "Week 18", "Week 19", "Week 20", "Week 21", "Week 22", "Week 23", "Week 24", "Week 25", "Week 26", "Week 27", "Week 28", "Week 29", "Week 30", "Week 31", "Week 32"],
             datasets: [{
-                label: 'Minutes Per Week',
+                label: 'Hours Per Week',
                 backgroundColor: '#b2c7c8',
-                data: [60, 75, 43, 120, 91, 33, 55, 180, 100, 0]
+                data: [12, 25, 16, 10, 7, 4, 30, 19, 2, 0]
 
             }]
         }

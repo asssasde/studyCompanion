@@ -74,31 +74,29 @@
 
 					<div class="col-sm-4">
 
-						<div class="startBtn">
-							<img id="start" src="assets/img/play.png">
-						</div>
-						<p id="textBtn">Press this button when you are ready to start studiyng. Also after taking a break.</p>
-
-
-					</div>
-
-					<div class="col-sm-4">
-
-						<div class="pauseBtn">
-							<img id="pause" src="assets/img/pause.png">
-						</div>
-						<p id="textBtn">Press this button to take a break. You should do it at least every hour</p>
-
+						<a data-toggle="tooltip" title="Press this button when you are ready to start studiyng. Also after taking a break.">
+							<div class="startBtn">
+							 <img id="start" src="assets/img/play.png">
+						  </div>
+					 </a>
 
 					</div>
 
 					<div class="col-sm-4">
+						<a data-toggle="tooltip" title="Press this button to take a break. You should do it at least every hour.">
+							<div class="pauseBtn">
+							 <img id="pause" src="assets/img/pause.png">
+						  </div>
+					 </a>
 
-						<div class="stopBtn">
-							<img id="stop" src="assets/img/stop.png">
-						</div>
-						<p id="textBtn">Press this button when you're done for the day. The minimum recommended is 20 hours per week</p>
+					</div>
 
+					<div class="col-sm-4">
+						<a data-toggle="tooltip" title="Press this button when you're done for the day. The minimum recommended is 20 hours per week.">
+							<div class="stopBtn">
+							 <img id="stop" src="assets/img/stop.png">
+						  </div>
+					 </a>
 
 					</div>
 
@@ -116,7 +114,7 @@
 
 			<div class="container text-center">
 
-				<h1 id="sectionHeaders">Weekly Chart</h1>
+				<h1 id="sectionHeaders">Progress Chart</h1>
 				<br>
 				<div class="container" id="chartContainer">
 				 	<canvas id="myChart"></canvas>
