@@ -45,6 +45,6 @@ Motivational Quotes
 
 ## Copyright: 
 
-Ashley Calixte(@Ashleycalx), Calvin Mendoza(@calvin*), Ejeke E(@reyhenry38), Mariela Pascual(@mariela2p)
+Ashley Calixte(@Ashleycalx), Calvin Mendoza(@calvin), Ejike Onwe(@reyhenry38), Mariela Pascual(@mariela2p)
 
 © 2017 All Rights Reserved
